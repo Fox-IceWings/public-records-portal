@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Goverment Sign Up</h1>
+        <a href="/" target="_blank">Home</a>
+        <hr>
+        
+        <label for="agency">Agency name:</label><br>
+        <input type="text" id="agency" name="agency"><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <label for="County">County:</label><br>
+        <input type="text" id="county" name="Country"><br>
+        <label for="State">State:</label><br>
+        <input type="text" id="state" name="state"><br>
+        <label for="Country">Country:</label><br>
+        <input type="text" id="country" name="country"><br>
+        <label for="pname">Primary contact name:</label><br>
+        <input type="text" id="pname" name="pname"><br>
+        <label for="pnumber">Primary contact number:</label><br>
+        <input type="text" id="pnumber" name="pnumber"><br>
+        <label for="pemail">Primary contact email:</label><br>
+        <input type="email" id="pemail" name="pemail"><br>
+        <label for="request-information">Tell us how we can help you:</label><br>
+        <textarea type="text" id="request" name="request" value="Doe"></textarea><br><br>
+        <button id="submitForm">Submit Request</button>
+
+    <script>
+        document.getElementById('submitForm').addEventListener("click", submitRequest)
+
+        function submitRequest() {
+
+            const FORM_DATA = {
+                agency: document.getElementById("agency").value,
+                city: document.getElementById("city").value,
+                county: document.getElementById("county").value,
+                state: document.getElementById("state").value,
+                country: document.getElementById("country").value,
+                pnumber: document.getElementById("pnumber").value,
+                pemail: document.getElementById("pemail").value,
+                pname: document.getElementById("pname").value,
+                text: document.getElementById("request").value
+                
+            }
+
+            console.log(JSON.stringify(FORM_DATA))
+            
+            fetch('http://localhost:3000/api/enroll/agency', {
+                method: "POST",
+                mode: 'cors',
+                headers: {
+                        'Content-Type': 'application/json'
+                    }, 
+                body: JSON.stringify(FORM_DATA)
+            })
+
+        }
+
+    </script>
+    </body>
+</html>

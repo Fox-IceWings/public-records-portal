@@ -1,0 +1,62 @@
+{
+    "formId": "string",                // Unique identifier for the form
+    "formName": "string",              // Name of the form
+    "description": "string",           // Optional description
+    "createdBy": "string",             // User who created the form
+    "createdAt": "2024-06-10T12:00:00Z", // Creation timestamp
+    "editLog": [
+        {
+            editedBy: "int",             //User who eddited the form
+            editedAt: "345678",          //Timestamp
+            comments: "string,           //Usercoments
+            changeSummary: [
+                "fieldId": "string",    //Id of field changed
+                old: {}, //old key value
+                new: {}, //new key value            
+                ]
+        }
+    ]
+    "public-fields": [                  // Fields that the public have access to
+        {
+            "fieldId": "string",           // Unique identifier for the field
+            "aliasId"  "string",           // Unique fieldIdAlias for user readable and api use
+            "label": "string",             // Field label
+            "type": "text",                // Field type (e.g., text, number, select, checkbox, date)
+            "required": true,              // Is the field required?
+            "options": [                   // For select, radio, checkbox types
+                {
+                    "value": "string",
+                    "displayText": "string"
+                }
+            ],
+            "defaultValue": "string",      // Default value for the field
+            "placeholder": "string",       // Placeholder text
+            "order": 1                     // Order of the field in the form
+        }
+        // ... more fields
+    ],
+     "admin-fields": [                  // Fields that the public have access to
+        {
+            "fieldId": "string",           // Unique identifier for the field
+            "label": "string",             // Field label
+            "type": "text",                // Field type (e.g., text, number, select, checkbox, date)
+            "required": true,              // Is the field required?
+            "options": [                   // For select, radio, checkbox types
+                {
+                    "value": "string",
+                    "displayText": "string"
+                }
+            ],
+            "defaultValue": "string",      // Default value for the field
+            "placeholder": "string",       // Placeholder text
+            "order": 1                     // Order of the field in the form
+        }
+        // ... more fields
+    ],
+    "settings": {
+        "theme": "light",                // Optional: form theme
+        "submitButtonText": "Submit",     // Optional: submit button text
+        "workFlow": "int",            //what workflow-id gets this
+        "groupOwner" int,             //What group owns this
+    }
+}

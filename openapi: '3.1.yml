@@ -1,0 +1,44 @@
+openapi: '3.1.1'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://api.server.test/api
+paths:
+  /embed/submit-records-request:
+    description: This end point is for use by embedded forms on the agency website. The requester is not signed in
+    post:
+      requestBody:
+        description: The Body of the embbeded form
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#"
+              description: agency defined form body that is embbeded
+      responses:
+        '201':
+          description: Records request was sucessfully submitted to the agency
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request-id:
+                    type: string
+                    description: agencies local id for the responce
+                  agency-name:
+                    type: string
+                    description: name of the agency receving the request
+                  date:
+                    type: string
+                    description: date request was receved
+                  message:
+                    type: string
+                    description: pre determided agency customizable responce
+                example:
+                  request-id: '2025-0158'
+                  agency-name: 'City of Anytown'
+                  date: '2025-JUL-25'
+                  message: 'As outlined in Law § [citation], if processing your request for records requires more than two hours of labor or the number of pages being requested exceeds one hundred pages (100), you will receive a cost estimate outlining the fees that must be paid before your request can be processed. Your request will not be processed until the City receives payment.  If your request takes less time to fulfill than estimated, you will be refunded the difference between the estimated and actual cost. Should your request take longer to process than expected, you will receive an additional cost letter.  If the City does not receive the payment within 30 days of the cost letter being sent, the request will be deemed withdrawn.'
+      

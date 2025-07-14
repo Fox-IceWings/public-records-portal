@@ -1,0 +1,25 @@
+{
+  "name": "public-records-portal",
+  "version": "1.0.0",
+  "description": "<h2>Basic work flow:</h2> <ol>   <li>Obtain a users records request</li>   <li>Send the request to the server</li>   <li>     <ul>       <li>show the user a confirmation number and notice</li>       <li>email user a confirmation email</li>       <li>add request to agency queue</li>       <li>notify agency of new request</li>     </ul>     <li>agency internally process request</li>     <li>agency uploads response to the application</li>   <li>agency finalizes request</li>   <li>user gets notification if completed request and sent an email copy</li>   </li> </ol>",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fox-IceWings/public-records-portal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fox-IceWings/public-records-portal/issues"
+  },
+  "homepage": "https://github.com/Fox-IceWings/public-records-portal#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}
